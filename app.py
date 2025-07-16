@@ -7,7 +7,38 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return 'Welcome to the film filter!'
+    return """
+    <html>
+      <head>
+        <style>
+          body {
+            background-color: #fdf6f0;
+            font-family: 'Segoe UI', sans-serif;
+            text-align: center;
+            padding-top: 100px;
+          }
+          a.button {
+            background-color: #d8a16f;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 16px;
+          }
+          a.button:hover {
+            background-color: #c58657;
+          }
+        </style>
+      </head>
+      <body>
+        <h1>Welcome to the Film Filter 🎞️</h1>
+        <p>Turn your digital photo into a dreamy film-like image</p>
+        <a class="button" href="/upload">Start Upload</a>
+      </body>
+    </html>
+    """
+
 
 form_html = """
 <html>
@@ -136,4 +167,7 @@ def upload():
 
 print(app.url_map)
 
-app.run(debug=True)
+import os
+port = int(os.environ.get("PORT", 5000))
+app.run(host='0.0.0.0', port=port)
+
