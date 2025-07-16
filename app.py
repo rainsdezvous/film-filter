@@ -157,6 +157,7 @@ def upload():
         file = request.files["file"]
         file.save("uploads/original.jpg")
         base_img = img.open("uploads/original.jpg")
+        base_img = base_img.resize((800, int(base_img.height * 800 / base_img.width)))
         filtered_img = apply_film_filter(base_img)
         filtered_img.save("uploads/filtered.png")
 
