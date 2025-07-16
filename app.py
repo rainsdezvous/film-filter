@@ -170,7 +170,6 @@ print(app.url_map)
 import os
 port = int(os.environ.get("PORT", 5000))
 app.run(host='0.0.0.0', port=port)
-<<<<<<< HEAD
 
-=======
->>>>>>> 2c314fa5c4494b2b73fb1052b84ce1fea12ac1c4
+
+
